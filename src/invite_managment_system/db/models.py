@@ -6,7 +6,7 @@ class Member(SQLModel , table=True):
     name: str
     email: str
     phone_number: str | None = None
-    hotel_accommodation : str
+    hotel_accommodation : bool
     is_attending: bool = Field(default=False)
     total_person : int = Field(default=0)
     guest_names: list[str] = Field(
