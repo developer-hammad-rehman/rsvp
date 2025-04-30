@@ -74,7 +74,7 @@ class Service:
             if data.get("location"):
                 result.location = data.get("location")
             if data.get("url"):
-                result.location = data.get("url")
+                result.url = data.get("url")
             self.db.commit()
             self.db.refresh(result)
             return result
