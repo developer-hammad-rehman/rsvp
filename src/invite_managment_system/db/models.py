@@ -29,5 +29,6 @@ class Images(SQLModel , table=True):
 class Events(SQLModel , table=True):
     id: int | None = Field(default=None, primary_key=True)
     event : str
+    hotel_accommodation : str
     location : str
     url : str
