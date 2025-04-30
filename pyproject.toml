@@ -1,0 +1,27 @@
+[project]
+name = "invite-managment-system"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Muhammad Hammad", email = "hammadrehman208@gmail.com" }
+]
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi>=0.115.12",
+    "fastapi-mail>=1.4.2",
+    "psycopg-binary>=3.2.6",
+    "psycopg2-binary>=2.9.10",
+    "python-jose>=3.4.0",
+    "python-multipart>=0.0.20",
+    "sqlmodel>=0.0.24",
+    "uvicorn[standard]>=0.34.2",
+]
+
+[project.scripts]
+invite-managment-system = "invite_managment_system:main"
+start = "invite_managment_system.main:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
