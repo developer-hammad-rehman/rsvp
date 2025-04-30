@@ -6,6 +6,7 @@ class Member(SQLModel , table=True):
     name: str
     email: str
     phone_number: str | None = None
+    hotel_accommodation : str
     is_attending: bool = Field(default=False)
     total_person : int = Field(default=0)
     guest_names: list[str] = Field(
@@ -29,6 +30,5 @@ class Images(SQLModel , table=True):
 class Events(SQLModel , table=True):
     id: int | None = Field(default=None, primary_key=True)
     event : str
-    hotel_accommodation : str
     location : str
     url : str
