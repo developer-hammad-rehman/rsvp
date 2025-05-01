@@ -1,5 +1,5 @@
 from typing import Annotated
-from fastapi import Form, Request, UploadFile
+from fastapi import File, Form, Request, UploadFile
 
 from invite_managment_system.db.models import Events, Member
 from ..dependencies import SERVICE
@@ -16,7 +16,7 @@ class Controller:
         result = service.get_registered_members()
         return result
     @staticmethod
-    async def upload_images(name : Annotated[str , Form()], email:Annotated[str , Form()] , request:Request , files : list[UploadFile] , service : SERVICE):
+    async def upload_images(name : Annotated[str , Form()], email:Annotated[str , Form()] , request:Request , files : Annotated[list[UploadFile] ,  File()] , service : SERVICE):
         result = await service.upload_images(name=name , email=email , request=request , files=files)
         return result
     # @staticmethod
