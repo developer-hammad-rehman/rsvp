@@ -25,14 +25,14 @@ class Service:
         return result
 
     async def upload_images(
-        self, name:str , email:str, request: Request, files: list[UploadFile] = File(...)
+        self, request: Request, files: list[UploadFile] = File(...)
     ):
         for file in files:
             file_location = f"storage/{file.filename}"
             with open(file_location, "wb+") as file_object:
                 file_object.write(file.file.read())
             url = f"{request.base_url}images/{file.filename}"
-            image = Images(name=name , email=email, image_path=url)
+            image = Images(image_path=url)
             self.db.add(image)
             self.db.commit()
             self.db.refresh(image)

@@ -16,8 +16,8 @@ class Controller:
         result = service.get_registered_members()
         return result
     @staticmethod
-    async def upload_images(name : Annotated[str , Form()], email:Annotated[str , Form()] , request:Request , files : Annotated[list[UploadFile] ,  File()] , service : SERVICE):
-        result = await service.upload_images(name=name , email=email , request=request , files=files)
+    async def upload_images(request:Request , files : Annotated[list[UploadFile] ,  File()] , service : SERVICE):
+        result = await service.upload_images(request=request , files=files)
         return result
     # @staticmethod
     # def get_member_images(member_id : int , service : SERVICE):
